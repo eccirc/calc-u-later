@@ -21,12 +21,12 @@ main {
 .calc {
   background-color: lightblue;
   padding: 20px;
-  width: 50%;
+  width: 40%;
   height: 90%;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 8fr;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr 4fr;
   gap: 20px;
   &__display {
     background-color: white;
@@ -34,19 +34,20 @@ main {
     text-align: end;
     text-justify: center;
     margin-bottom: 20px;
-    column-span: 1 / span 2fr;
+    grid-column: 1 / span 2;
   }
   &__numbers {
     display: grid;
-    gap: 20px;
-    width: 50%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 1fr 1fr 1fr 1fr;
   }
   &__operators {
     display: grid;
-    gap: 20px;
-    width: 50%;
+    gap: 10px;
+
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
   }
