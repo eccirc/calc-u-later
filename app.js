@@ -19,6 +19,10 @@ EQUALS OPERAND
 
 - do all of the operations according to BODMAS, then clear the numbers array
 
+CLEAR
+
+- clear all of the collected numbers and operands and reset to zero
+
 DOM ELEMENTS
 
 Number buttons - button with an inner HTML of the corresponding number and a class of "number"

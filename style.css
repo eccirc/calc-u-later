@@ -24,18 +24,44 @@ main {
 
 .calc {
   background-color: lightblue;
+  padding: 20px;
   width: 50%;
   height: 90%;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 8fr;
+      grid-template-rows: 1fr 8fr;
+  gap: 20px;
+}
+
+.calc__display {
+  background-color: white;
+  width: 100%;
+  text-align: end;
+  text-justify: center;
+  margin-bottom: 20px;
+  -webkit-column-span: 1 / span 2fr;
+          column-span: 1 / span 2fr;
 }
 
 .calc__numbers {
   display: -ms-grid;
   display: grid;
-  gap: 2rem;
+  gap: 20px;
+  width: 50%;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.calc__operators {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
   width: 50%;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;

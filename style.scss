@@ -20,13 +20,32 @@ main {
 
 .calc {
   background-color: lightblue;
+  padding: 20px;
   width: 50%;
   height: 90%;
   margin: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 8fr;
+  gap: 20px;
+  &__display {
+    background-color: white;
+    width: 100%;
+    text-align: end;
+    text-justify: center;
+    margin-bottom: 20px;
+    column-span: 1 / span 2fr;
+  }
   &__numbers {
     display: grid;
-    gap: 2rem;
+    gap: 20px;
+    width: 50%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  &__operators {
+    display: grid;
+    gap: 20px;
     width: 50%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
