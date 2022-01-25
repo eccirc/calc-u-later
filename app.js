@@ -1,16 +1,16 @@
 //Create a calculator object to hold all relevant calulator based things
 
 const calc = {
-  prevVal: 2,
-  currentVal: 4,
+  prevVal: 0,
+  currentVal: 0,
   isNextVal: false,
-  operand: "*",
+  operand: "+",
   displayValue: "",
   calculate: null,
 };
 
 //CALCULATOR LOGIC SANDBOX
-const operand = "+";
+//const operand = "+";
 
 const calculate = () => {
   output = 0;
@@ -45,25 +45,27 @@ const calcDisplayLower = document.querySelector(".disp_2");
 const numberButtons = document.querySelectorAll(".number");
 const operandButtons = document.querySelectorAll(".operand");
 const clearAll = document.querySelector(".clear-all");
-const clearLast = document.querySelector("cleae-last");
+const clearLast = document.querySelector("clear-last");
 
 numberButtons.forEach((number) => {
   number.addEventListener("click", (event) => {
-    if (!calc.isNextVal) {
-      calc.displayValue += event.target.innerHTML;
-      calcDisplayLower.innerHTML = calc.displayValue;
-      calc.prevVal = parseFloat(calcDisplayLower.innerHTML);
-    } else {
-      calcDisplayUpper.innerHTML += event.target.innerHTML;
-      calc.currentVal = parseFloat(calcDisplayUpper);
+    // if (calc.isNextVal === false) {
+    calcDisplayLower.innerHTML += event.target.innerHTML;
+    calc.currentVal = parseFloat(calcDisplayLower.innerHTML);
+    console.log("sanity check");
+    if (calc.isNextVal) {
+      console.log(calculate());
     }
   });
 });
 
 operandButtons.forEach((op) => {
   op.addEventListener("click", (event) => {
+    calc.prevVal = calc.currentVal;
     calc.operand = event.target.innerHTML;
-    calcDisplayLower.innerHTML += event.target.innerHTML;
-    !calc.isNextVal;
+    calcDisplayUpper.innerHTML += calc.currentVal + calc.operand;
+    calcDisplayLower.innerHTML = "";
+    calc.currentVal = 0;
+    calc.isNextVal = true;
   });
 });
