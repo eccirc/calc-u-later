@@ -3,7 +3,7 @@
 const calc = {
   prevVal: 2,
   currentVal: 4,
-  nextVal: false,
+  isNextVal: false,
   operand: "*",
   displayValue: "",
   calculate: null,
@@ -46,3 +46,24 @@ const numberButtons = document.querySelectorAll(".number");
 const operandButtons = document.querySelectorAll(".operand");
 const clearAll = document.querySelector(".clear-all");
 const clearLast = document.querySelector("cleae-last");
+
+numberButtons.forEach((number) => {
+  number.addEventListener("click", (event) => {
+    if (!calc.isNextVal) {
+      calc.displayValue += event.target.innerHTML;
+      calcDisplayLower.innerHTML = calc.displayValue;
+      calc.prevVal = parseFloat(calcDisplayLower.innerHTML);
+    } else {
+      calcDisplayUpper.innerHTML += event.target.innerHTML;
+      calc.currentVal = parseFloat(calcDisplayUpper);
+    }
+  });
+});
+
+operandButtons.forEach((op) => {
+  op.addEventListener("click", (event) => {
+    calc.operand = event.target.innerHTML;
+    calcDisplayLower.innerHTML += event.target.innerHTML;
+    !calc.isNextVal;
+  });
+});

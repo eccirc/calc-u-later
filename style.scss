@@ -36,6 +36,8 @@ main {
     text-align: end;
     text-justify: center;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__buttons {
