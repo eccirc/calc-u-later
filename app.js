@@ -1,24 +1,48 @@
 //Create a calculator object to hold all relevant calulator based things
 
 const calc = {
-  inputs: [1, 2],
-  operand: "+",
+  prevVal: 2,
+  currentVal: 4,
+  nextVal: false,
+  operand: "*",
   displayValue: "",
   calculate: null,
 };
 
-const arr = [1, 2];
-
+//CALCULATOR LOGIC SANDBOX
 const operand = "+";
 
-const calculate = (inputArr) => {
-  return inputArr.reduce((prev, next) => {
-    return operand === "+" ? prev + next : 0;
-  });
+const calculate = () => {
+  output = 0;
+  switch (calc.operand) {
+    case "+":
+      output = calc.prevVal + calc.currentVal;
+      break;
+    case "-":
+      output = calc.prevVal - calc.currentVal;
+      break;
+    case "*":
+      output = calc.prevVal * calc.currentVal;
+      break;
+    case "/":
+      output = calc.prevVal / calc.currentVal;
+      break;
+    case "^":
+      output = calc.prevVal ** calc.currentVal;
+      break;
+    case "%":
+      output = calc.prevVal * 0.01;
+      break;
+  }
+  return output;
 };
+console.log(calculate());
 
-const calcu = arr.reduce((prev, next) => {
-  return operand === "+" ? prev + next : operand === "-" ? prev - next : 0;
-});
+//HTML ACCESS
 
-console.log(calculate(arr));
+const calcDisplayUpper = document.querySelector(".disp_1");
+const calcDisplayLower = document.querySelector(".disp_2");
+const numberButtons = document.querySelectorAll(".number");
+const operandButtons = document.querySelectorAll(".operand");
+const clearAll = document.querySelector(".clear-all");
+const clearLast = document.querySelector("cleae-last");
