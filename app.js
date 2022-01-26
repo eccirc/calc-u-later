@@ -54,7 +54,10 @@ numberButtons.forEach((number) => {
     calc.currentVal = parseFloat(calcDisplayLower.innerHTML);
     console.log("sanity check");
     if (calc.isNextVal) {
-      console.log(calculate());
+      calcDisplayUpper.innerHTML += event.target.innerHTML;
+      console.log("is Next val");
+      calcDisplayLower.innerHTML = calculate();
+      calc.prevVal = calculate();
     }
   });
 });
@@ -63,9 +66,17 @@ operandButtons.forEach((op) => {
   op.addEventListener("click", (event) => {
     calc.prevVal = calc.currentVal;
     calc.operand = event.target.innerHTML;
-    calcDisplayUpper.innerHTML += calc.currentVal + calc.operand;
+    calcDisplayUpper.innerHTML += calc.operand;
     calcDisplayLower.innerHTML = "";
     calc.currentVal = 0;
     calc.isNextVal = true;
   });
+});
+
+clearAll.addEventListener("click", (event) => {
+  calc.prevVal = 0;
+  calc.currentVal = 0;
+  calc.isNextVal = false;
+  calcDisplayLower.innerHTML = "";
+  calcDisplayUpper.innerHTML = "";
 });
