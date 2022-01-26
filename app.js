@@ -4,6 +4,7 @@ const calc = {
   prevVal: 0,
   currentVal: 0,
   isNextVal: false,
+  isFirstOperand: true,
   operand: "+",
   displayValue: "",
   result: 0,
@@ -11,8 +12,8 @@ const calc = {
 };
 
 //CALCULATOR LOGIC SANDBOX
-//const operand = "+";
 
+// prettier-ignore
 const calculate = (operand, prevVal, currentVal) => {
   output = 0;
   switch (operand) {
@@ -32,12 +33,11 @@ const calculate = (operand, prevVal, currentVal) => {
       output = prevVal ** currentVal;
       break;
     case "%":
-      output = prevVal * 0.01;
+      output = (prevVal * 0.01) * currentVal;
       break;
   }
   return output;
 };
-console.log(calculate());
 
 //HTML ACCESS
 
@@ -66,6 +66,7 @@ numberButtons.forEach((number) => {
       calc.result = calculate(calc.operand, calc.prevVal, calc.currentVal);
       calcDisplayLower.innerHTML = calc.result;
       calc.currentVal = calc.result;
+      calc.isFirstOperand = true;
     }
     updateVal();
   });
@@ -73,14 +74,15 @@ numberButtons.forEach((number) => {
 //Operand buttons - currentValue is assigned to prevValue to create a running total
 operandButtons.forEach((op) => {
   op.addEventListener("click", (event) => {
-    calc.displayValue += event.target.innerHTML;
-    calc.prevVal = calc.currentVal;
-    calc.operand = event.target.innerHTML;
-    // calcDisplayUpper.innerHTML = calcDisplayLower.innerHTML += calc.operand;
-    calcDisplayLower.innerHTML = "";
-    calc.currentVal = 0;
-    calc.isNextVal = true;
-    updateVal();
+    if (calc.isFirstOperand) {
+      calc.prevVal = calc.currentVal;
+      calc.operand = event.target.innerHTML;
+      calc.displayValue = calc.prevVal + calc.operand;
+      calcDisplayLower.innerHTML = "";
+      calc.isNextVal = true;
+      calc.isNextOperand = false;
+      updateVal();
+    } else calc.currentVal = 0;
   });
 });
 
@@ -90,10 +92,14 @@ clearAll.addEventListener("click", (event) => {
   calc.currentVal = 0;
   calc.displayValue = "";
   calc.isNextVal = false;
+  calc.isFirstOperand = true;
   calcDisplayLower.innerHTML = "";
   calcDisplayUpper.innerHTML = "";
   calcDisplayEquals.innerHTML = "";
 });
+
+//Clear the last operation or number
+// clearLast.addEventListener("click", (event) => {});
 
 //Run/Display the calculation, and then reset all values
 equalsButton.addEventListener("click", (event) => {
