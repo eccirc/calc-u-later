@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Courier New", Courier, monospace;
 }
 
 button {
@@ -44,7 +45,6 @@ main {
   height: 20%;
   border-radius: 10px;
   text-align: end;
-  text-justify: center;
   margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,6 +53,15 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.calc__display .disp_1,
+.calc__display .disp_2 {
+  font-size: 28px;
+}
+
+.calc__display .disp_3 {
+  font-size: 48px;
 }
 
 .calc__buttons {

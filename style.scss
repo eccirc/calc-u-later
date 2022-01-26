@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Courier New", Courier, monospace;
 }
 
 button {
@@ -34,10 +35,17 @@ main {
     height: 20%;
     border-radius: 10px;
     text-align: end;
-    text-justify: center;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+
+    .disp_1,
+    .disp_2 {
+      font-size: 28px;
+    }
+    .disp_3 {
+      font-size: 48px;
+    }
   }
 
   &__buttons {
