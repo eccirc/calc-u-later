@@ -8,4 +8,4 @@ A basic calcultor built with **HTML**, **SCSS** and **Javascript**.
 
 ## Screenshots
 
-![mobile project page](./calc-screenshot.png)
+![calc-u-later](./assets/calc-screenshot.png)
