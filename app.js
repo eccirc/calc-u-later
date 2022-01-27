@@ -81,6 +81,11 @@ operandButtons.forEach((op) => {
 });
 //Clear everything and rest calculations to start afresh by resetting isNextVal to false
 clearAll.addEventListener("click", (event) => {
+  //REFACTOr?
+  // calc = {
+  //   ...calc,
+
+  // }
   calc.prevVal = 0;
   calc.currentVal = 0;
   calc.displayValue = "";
