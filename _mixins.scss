@@ -1,0 +1,9 @@
+@mixin buttonStyle($bg-col, $font-size: 30px) {
+  border-radius: $border-rad;
+  border-right: 12px outset $border-colour;
+  width: 100%;
+  height: 100%;
+  font-size: $font-size;
+  background-color: $bg-col;
+  color: $button-colour-white;
+}

@@ -1,5 +1,4 @@
 //Create a calculator object to hold all relevant calulator based things
-
 const calc = {
   prevVal: 0,
   currentVal: 0,
@@ -10,9 +9,7 @@ const calc = {
   result: 0,
   calculate: null,
 };
-
 //CALCULATOR LOGIC SANDBOX
-
 // prettier-ignore
 const calculate = (operand, prevVal, currentVal) => {
   output = 0;
@@ -38,9 +35,7 @@ const calculate = (operand, prevVal, currentVal) => {
   }
   return output;
 };
-
-//HTML ACCESS
-
+//HTML / DOM ACCESS
 const calcDisplayUpper = document.querySelector(".disp_1");
 const calcDisplayLower = document.querySelector(".disp_2");
 const calcDisplayEquals = document.querySelector(".disp_3");
@@ -53,7 +48,6 @@ const equalsButton = document.getElementById("equals");
 const updateVal = () => {
   calcDisplayUpper.innerHTML = calc.displayValue;
 };
-
 //Number button event listeners - if statement works to create a running total when new numbers are entered
 numberButtons.forEach((number) => {
   number.addEventListener("click", (event) => {
@@ -85,7 +79,6 @@ operandButtons.forEach((op) => {
     } else calc.currentVal = 0;
   });
 });
-
 //Clear everything and rest calculations to start afresh by resetting isNextVal to false
 clearAll.addEventListener("click", (event) => {
   calc.prevVal = 0;
@@ -97,9 +90,7 @@ clearAll.addEventListener("click", (event) => {
   calcDisplayUpper.innerHTML = "";
   calcDisplayEquals.innerHTML = "";
 });
-
 //Clear the last operation or number
-// clearLast.addEventListener("click", (event) => {});
 
 //Run/Display the calculation, and then reset all values
 equalsButton.addEventListener("click", (event) => {
