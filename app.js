@@ -56,13 +56,10 @@ numberButtons.forEach((number) => {
     calcDisplayLower.innerHTML += event.target.innerHTML;
     calc.currentVal = parseFloat(calcDisplayLower.innerHTML);
     if (calc.isNextVal) {
-      // calcDisplayUpper.innerHTML += event.target.innerHTML;
       calc.result = calculate(calc.operand, calc.prevVal, calc.currentVal);
-      //console.log(calc.result);
-      calcDisplayLower.innerHTML = calc.result;
-      //calc.currentVal = calc.result;
-      //calc.isNextVal = false;
+      calc.currentVal = calc.result;
       calc.isFirstOperand = true;
+      ///calc.displayValue += calc.result;
     }
     updateVal();
   });
@@ -70,16 +67,15 @@ numberButtons.forEach((number) => {
 //Operand buttons - currentValue is assigned to prevValue to create a running total
 operandButtons.forEach((op) => {
   op.addEventListener("click", (event) => {
-    //if (calc.isFirstOperand) {
     calc.prevVal = calc.currentVal;
     calc.operand = event.target.innerHTML;
-    calc.displayValue += calc.prevVal + calc.operand;
-    calcDisplayLower.innerHTML = "";
     calc.isNextVal = true;
-    calc.isNextOperand = false;
-    calc.currentVal = 0;
+    calcDisplayLower.innerHTML = "";
+    if (calc.isFirstOperand) {
+      calc.displayValue += calc.operand;
+      calc.isFirstOperand = false;
+    }
     updateVal();
-    // } else
   });
 });
 //Clear everything and rest calculations to start afresh by resetting isNextVal to false
@@ -102,7 +98,7 @@ clearAll.addEventListener("click", (event) => {
 
 //Run/Display the calculation, and then reset all values
 equalsButton.addEventListener("click", (event) => {
-  calcDisplayEquals.innerHTML = calcDisplayLower.innerHTML;
+  calcDisplayEquals.innerHTML = calc.result;
   calcDisplayLower.innerHTML = "";
   calc.prevVal = 0;
   calc.currentVal = 0;
