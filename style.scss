@@ -61,6 +61,8 @@ main {
       padding: 10px;
       color: $display-colour;
       font-family: $display-font;
+      display: flex;
+      flex-wrap: wrap;
     }
     .disp_1 {
       color: $display-colour-light;
