@@ -58,8 +58,10 @@ numberButtons.forEach((number) => {
     if (calc.isNextVal) {
       // calcDisplayUpper.innerHTML += event.target.innerHTML;
       calc.result = calculate(calc.operand, calc.prevVal, calc.currentVal);
+      //console.log(calc.result);
       calcDisplayLower.innerHTML = calc.result;
-      calc.currentVal = calc.result;
+      //calc.currentVal = calc.result;
+      //calc.isNextVal = false;
       calc.isFirstOperand = true;
     }
     updateVal();
@@ -68,15 +70,16 @@ numberButtons.forEach((number) => {
 //Operand buttons - currentValue is assigned to prevValue to create a running total
 operandButtons.forEach((op) => {
   op.addEventListener("click", (event) => {
-    if (calc.isFirstOperand) {
-      calc.prevVal = calc.currentVal;
-      calc.operand = event.target.innerHTML;
-      calc.displayValue = calc.prevVal + calc.operand;
-      calcDisplayLower.innerHTML = "";
-      calc.isNextVal = true;
-      calc.isNextOperand = false;
-      updateVal();
-    } else calc.currentVal = 0;
+    //if (calc.isFirstOperand) {
+    calc.prevVal = calc.currentVal;
+    calc.operand = event.target.innerHTML;
+    calc.displayValue += calc.prevVal + calc.operand;
+    calcDisplayLower.innerHTML = "";
+    calc.isNextVal = true;
+    calc.isNextOperand = false;
+    calc.currentVal = 0;
+    updateVal();
+    // } else
   });
 });
 //Clear everything and rest calculations to start afresh by resetting isNextVal to false
