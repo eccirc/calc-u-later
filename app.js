@@ -59,7 +59,6 @@ numberButtons.forEach((number) => {
       calc.result = calculate(calc.operand, calc.prevVal, calc.currentVal);
       calc.currentVal = calc.result;
       calc.isFirstOperand = true;
-      ///calc.displayValue += calc.result;
     }
     updateVal();
   });
