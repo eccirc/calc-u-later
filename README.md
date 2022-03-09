@@ -1,11 +1,30 @@
 # CALC-U-LATER - a basic javascipt calculator
 
-### David Williams - January 2022
+### Author
+**David Williams**
 
-## About this project
+### Date
+**January 2022**
 
-A basic calcultor built with **HTML**, **SCSS** and **Javascript**.
+### Last Updated
+**January 2022**
+
+## About
+
+This project aims to replicate the functions of a basic calculator using a running total method. This version does not use BODMAS. 
+
+## Technologies
+
+**HTML**, **SCSS**, **Javascript**
+
+## Credits / Attributions
+
+**fonts**
+
+- Pixel font from [data font](https://www.dafont.com/pixel-lcd7.font)
 
 ## Screenshots
+
+### Desktop
 
 ![calc-u-later](./assets/calc-screenshot.png)
