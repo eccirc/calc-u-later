@@ -1,6 +1,8 @@
 # CALC-U-LATER - a basic javascipt calculator
 **Author** David Williams
+
 **Date** January 2022
+
 **Last** Updated January 2022
 
 ## About
