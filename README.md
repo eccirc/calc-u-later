@@ -5,7 +5,7 @@
 
 ## About
 
-This project aims to replicate the functions of a basic calculator using a running total method. This version does not use BODMAS. git
+This project aims to replicate the functions of a basic calculator using a running total method. This version does not use BODMAS. 
 
 ## Technologies
 
